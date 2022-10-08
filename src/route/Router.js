@@ -3,7 +3,6 @@ import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../layout/auth/AuthLayout";
 import LoginPage from "../Pages/LoginPage.js";
 import Home from "../Pages/Home.js";
-import Product from "../Pages/Product.js";
 import CartItem from "../Pages/CartItem.js";
 
 function Router() {
@@ -14,7 +13,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<AuthLayout />}>
             <Route path="/home" element={<Home />} />
-            <Route path="/product" element={<Product />} />
+            {/* <Route path="/product" element={<Product />} /> */}
             <Route path="/cartItem" element={<CartItem />} />
           </Route>
         </Routes>

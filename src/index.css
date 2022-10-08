@@ -1,6 +1,10 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
   background-color: #f0f2f5;
-}
+} */
 
 .bg-gray-100 {
   background-color: #f3f4f6;
@@ -44,10 +48,6 @@ body {
 
 .fill-primary {
   fill: #1b74e4;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
 }
 
 .focus-bg-gray-200:focus {

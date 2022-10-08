@@ -18,16 +18,19 @@ function CustomLink({ to, children, ...props }) {
 function Header() {
   return (
     <nav className="nav">
-      <Link to="/" className="logo">
-        Healthy Food
+      <Link to="/home" className="logo">
+        Site Name
       </Link>
       <ul>
-        <CustomLink to="/">Home</CustomLink>
+        <CustomLink to="/home">Home</CustomLink>
 
         <CustomLink to="/product">Product</CustomLink>
 
-        <CustomLink to="/about">About</CustomLink>
-        <Logout />
+        <CustomLink to="/cartItem">CartItem</CustomLink>
+
+        <CustomLink to="/">
+          <Logout />
+        </CustomLink>
       </ul>
     </nav>
   );

@@ -30,11 +30,11 @@ function AuthContainer() {
             <AuthForm />
 
             <div className="mt-3 d-flex justify-content-center gap-3 ">
-              <i class="fa-solid fa-utensils"></i>
-              <i class="fa-solid fa-seedling"></i>
-              <i class="fa-solid fa-cloud-meatball"></i>
-              <i class="fa-solid fa-martini-glass-citrus"></i>
-              <i class="fa-solid fa-champagne-glasses"></i>
+              <i className="fa-solid fa-utensils"></i>
+              <i className="fa-solid fa-seedling"></i>
+              <i className="fa-solid fa-cloud-meatball"></i>
+              <i className="fa-solid fa-martini-glass-citrus"></i>
+              <i className="fa-solid fa-champagne-glasses"></i>
             </div>
           </div>
         </div>

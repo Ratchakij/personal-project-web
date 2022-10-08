@@ -3,10 +3,12 @@ import { validateRegister } from "../../validations/userValidate";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { useLoading } from "../../context/LoadingContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm({ onSuccess }) {
   const { register } = useAuth();
   const { startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
 
   const [input, setInput] = useState({
     firstName: "",
@@ -40,6 +42,9 @@ function RegisterForm({ onSuccess }) {
       toast.error(err.response.data.message);
     } finally {
       stopLoading();
+      setTimeout(() => {
+        navigate("/home");
+      }, 1);
     }
   };
 

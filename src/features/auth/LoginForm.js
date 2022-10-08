@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { useLoading } from "../../context/LoadingContext";
@@ -6,6 +7,7 @@ import { useLoading } from "../../context/LoadingContext";
 function LoginForm() {
   const { login } = useAuth();
   const { startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
 
   const [input, setInput] = useState({
     email: "",
@@ -22,6 +24,7 @@ function LoginForm() {
       startLoading();
       await login(input);
       toast.success("success login");
+      navigate("/home");
     } catch (err) {
       toast.error(err.response.data.message);
     } finally {

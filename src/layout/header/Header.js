@@ -26,7 +26,7 @@ function Header() {
 
         {/* <CustomLink to="/product">Product</CustomLink> */}
 
-        <CustomLink to="/cartItem">CartItem</CustomLink>
+        <CustomLink to="/about">About</CustomLink>
 
         <CustomLink to="/">
           <Logout />

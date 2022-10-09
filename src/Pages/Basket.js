@@ -24,7 +24,8 @@ function Basket(props) {
             </button>
           </div>
           <div className="col-4 text-right">
-            {item.qty} x ${item.price.toFixed(2)}
+            {/* {item.qty} x ${item.price.toFixed(2)} */}
+            {item.qty} X {item.price * item.qty}
           </div>
         </div>
       ))}
@@ -33,7 +34,7 @@ function Basket(props) {
           <hr></hr>
           <div className="flex flex-col items-end">
             Total Price
-            <div className="">{totalPrice.toFixed(2)}</div>
+            <div>{totalPrice.toFixed(2)}</div>
           </div>
           <hr></hr>
 

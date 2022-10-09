@@ -1,37 +1,37 @@
 import "./Home.css";
 
-import Basket from "./Basket";
-import Main from "./Main";
-import data from "../data/data";
+import Basket from "../Pages/Basket";
+import Main from "../Pages/Main";
 import { useState } from "react";
 import { Carousel } from "flowbite-react";
+import { useProduct } from "../context/ProductContext";
 
 function Home() {
   const [cartItems, setCartItems] = useState([]);
-  const { products } = data;
+  const { products } = useProduct();
 
-  const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+  const onAdd = (products) => {
+    const exist = cartItems.find((x) => x.id === products.id);
 
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === products.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
+      setCartItems([...cartItems, { ...products, qty: 1 }]);
     }
   };
 
-  const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+  const onRemove = (products) => {
+    const exist = cartItems.find((x) => x.id === products.id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(cartItems.filter((x) => x.id !== products.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === products.id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }

@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../layout/auth/AuthLayout";
 import LoginPage from "../Pages/LoginPage.js";
 import Home from "../Pages/Home.js";
-import CartItem from "../Pages/CartItem.js";
+import About from "../Pages/About";
 
 function Router() {
   const { user } = useAuth();
@@ -14,7 +14,7 @@ function Router() {
           <Route path="/" element={<AuthLayout />}>
             <Route path="/home" element={<Home />} />
             {/* <Route path="/product" element={<Product />} /> */}
-            <Route path="/cartItem" element={<CartItem />} />
+            <Route path="/about" element={<About />} />
           </Route>
         </Routes>
       ) : (

@@ -10,6 +10,7 @@ import "./index.css";
 
 import AuthContextProvider from "./context/AuthContext"; // เก็บข้อมูลเกี่ยวกับ authentication
 import LoadingContextProvider from "./context/LoadingContext";
+import ProductContextProvider from "./context/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +18,9 @@ root.render(
     <BrowserRouter>
       <LoadingContextProvider>
         <AuthContextProvider>
-          <App />
+          <ProductContextProvider>
+            <App />
+          </ProductContextProvider>
         </AuthContextProvider>
       </LoadingContextProvider>
     </BrowserRouter>

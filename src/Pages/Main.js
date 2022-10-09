@@ -1,7 +1,9 @@
+import { useProduct } from "../context/ProductContext";
 import Product from "./Product";
 
 function Main(props) {
-  const { products, onAdd } = props;
+  const { onAdd } = props;
+  const { products } = useProduct();
   return (
     <div className="grid gap-2 grid-cols-3 grid-rows-3 ">
       {products.map((product) => (

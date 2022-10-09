@@ -1,5 +1,5 @@
 function Product(props) {
-  const { product, onAdd } = props;
+  const { product } = props;
 
   return (
     <div class="overflow-hidden rounded-2xl bg-gray-50">
@@ -23,7 +23,7 @@ function Product(props) {
           </div>
           <button
             className="mt-2 inline-block rounded-full bg-orange-400 p-3 text-sm font-medium text-white"
-            onClick={() => onAdd(product)}
+            onClick={() => {}}
           >
             Edit Menu
           </button>

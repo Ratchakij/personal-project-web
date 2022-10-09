@@ -1,51 +1,31 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
-function Basket(props) {
-  const { cartItems, onAdd, onRemove } = props;
-  const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const navigate = useNavigate();
+function Basket() {
+  const [file, setFile] = useState(null);
 
   return (
-    <div className="flex flex-col items-between gap-2 w-[50vh] h-[40vh] bg-yellow-300">
-      <h1 className="flex justify-content-center align-items-center bg-yellow-500 text-4.5 h-9 tw-px-10">
-        Cart Items
-      </h1>
-      <hr></hr>
-      <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
-      {cartItems.map((item) => (
-        <div key={item.id} className="row">
-          <div className="col-4">{item.name}</div>
-          <div className="col-4">
-            <button onClick={() => onAdd(item)} className="add">
-              +
-            </button>
-            <button onClick={() => onRemove(item)} className="remove">
-              -
-            </button>
-          </div>
-          <div className="col-4 text-right">
-            {/* {item.qty} x ${item.price.toFixed(2)} */}
-            {item.qty} X {item.price * item.qty}
-          </div>
-        </div>
-      ))}
-      {cartItems.length !== 0 && (
-        <>
-          <hr></hr>
-          <div className="flex flex-col items-end">
-            Total Price
-            <div>{totalPrice.toFixed(2)}</div>
-          </div>
-          <hr></hr>
+    <div class="flex flex-col align-items-center overflow-hidden rounded-2xl bg-gray-50">
+      <img
+        className="w-[10rem] h-[10rem]"
+        src={file ? URL.createObjectURL(file) : ""}
+        alt=""
+      />
+      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
-          <button
-            className="btn d-flex justify-content-center align-items-center btn-warning text-4.5 h-9 tw-px-10"
-            onClick={() => navigate("/cartItem")}
-          >
-            Checkout
-          </button>
-        </>
-      )}
+      <span class="mt-2 text-lg font-semibold text-gray-800">
+        <input
+          type="text"
+          className="form-control rounded-md h-10"
+          placeholder="Password"
+          name="password"
+        />
+      </span>
+      <button
+        className="mt-2 flex items-center justify-content-center rounded-full bg-green-400 p-3 text-sm  font-medium text-black"
+        onClick={() => {}}
+      >
+        Create Menu
+      </button>
     </div>
   );
 }

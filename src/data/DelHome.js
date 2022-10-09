@@ -24,7 +24,7 @@
 //     }
 //   };
 
-//   const onRemove = () => {
+//   const onRemove = (products) => {
 //     const exist = cartItems.find((x) => x.id === products.id);
 //     if (exist.qty === 1) {
 //       setCartItems(cartItems.filter((x) => x.id !== products.id));

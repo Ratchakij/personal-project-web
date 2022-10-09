@@ -34,7 +34,7 @@
 //           <hr></hr>
 //           <div className="flex flex-col items-end">
 //             Total Price
-//             <div>{totalPrice.toFixed(2)}</div>
+//             <div className="">{totalPrice.toFixed(2)}</div>
 //           </div>
 //           <hr></hr>
 

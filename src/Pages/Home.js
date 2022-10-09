@@ -1,9 +1,10 @@
 import "./Home.css";
 
-import Basket from "../Pages/Basket";
-import Main from "../Pages/Main";
 import { Carousel } from "flowbite-react";
 import { useProduct } from "../context/ProductContext";
+
+import Main from "../Pages/Main";
+import AddMenu from "./AddMenu";
 
 function Home() {
   // const [cartItems, setCartItems] = useState([]);
@@ -48,7 +49,7 @@ function Home() {
       <div className="flex justify-center ">
         <Main products={products} />
         {/* <Main products={products} onAdd={onAdd} /> */}
-        <Basket />
+        <AddMenu />
         {/* <Basket cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} /> */}
       </div>
     </div>

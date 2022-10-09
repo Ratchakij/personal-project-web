@@ -2,7 +2,7 @@ function Product(props) {
   const { product } = props;
 
   return (
-    <div class="overflow-hidden rounded-2xl bg-gray-50">
+    <div className="overflow-hidden rounded-2xl bg-gray-50">
       <div className="flex items-center h-[250px] overflow-hidden">
         <img
           className="small"
@@ -10,14 +10,14 @@ function Product(props) {
           alt={product.name}
         ></img>
       </div>
-      <div class="p-6">
-        <div class="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+      <div className="p-6">
+        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
           <div>
-            <p class="text-gray-400">Healthy Food </p>
-            <h2 class="mt-2 text-lg font-semibold text-gray-800">
+            <p className="text-gray-400">Healthy Food </p>
+            <h2 className="mt-2 text-lg font-semibold text-gray-800">
               {product.name}
             </h2>
-            <span class="mt-2 text-lg font-semibold text-gray-800">
+            <span className="mt-2 text-lg font-semibold text-gray-800">
               Price {product.price} Bath
             </span>
           </div>

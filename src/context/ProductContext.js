@@ -14,8 +14,12 @@ function ProductContextProvider({ children }) {
     fetchProduct();
   }, []);
 
+  const createProducts = async (input) => {
+    return await productService.createProducts(input);
+  };
+
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, createProducts }}>
       {children}
     </ProductContext.Provider>
   );

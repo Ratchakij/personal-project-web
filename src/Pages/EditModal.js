@@ -3,15 +3,16 @@ import { toast } from "react-toastify";
 import { useProduct } from "../context/ProductContext";
 import { useLoading } from "../context/LoadingContext";
 
-function AddMenu() {
-  const { createProducts } = useProduct();
+function EditModal({ product }) {
+  const { name, price, quantity, productImage, id } = product;
+  const { updateProducts } = useProduct();
   const { startLoading, stopLoading } = useLoading();
-  const [file, setFile] = useState(null);
   const [input, setInput] = useState({
-    name: "",
-    price: "",
-    quantity: "",
+    name: name,
+    price: price,
+    quantity: quantity,
   });
+  const [file, setFile] = useState(null);
 
   const formData = new FormData();
   formData.append("productImage", file);
@@ -27,8 +28,8 @@ function AddMenu() {
     e.preventDefault(); // e.preventDefault() ถูกใช้เพื่อไม่ให้ browser reload หรือ refresh
     try {
       startLoading();
-      await createProducts(formData);
-      toast.success("success create");
+      await updateProducts(id, formData);
+      toast.success("success update");
     } catch (err) {
       console.log(err);
     } finally {
@@ -37,16 +38,17 @@ function AddMenu() {
   };
 
   return (
-    <div className="flex flex-col h-[40rem] w-[30rem] gap-4 align-items-center overflow-hidden rounded-2xl bg-gray-50">
-      <span className="text-lg font-semibold text-gray-800">Create Menu</span>
+    <div className="flex flex-col h-[40rem] w-[30rem] gap-4 align-items-center overflow-hidden rounded-2xl bg-gray-50  ">
+      <span className="text-lg font-semibold text-gray-800">Update Menu</span>
       <form
         className=" row flex justify-center gx-2 gy-3 "
         onSubmit={handleSubmitForm}
       >
         <img
           className="w-[10rem] h-[10rem]"
-          src={file ? URL.createObjectURL(file) : ""}
+          src={productImage}
           alt=""
+          onSubmit={handleSubmitForm}
         />
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
         <div className=" row flex justify-center">
@@ -105,11 +107,11 @@ function AddMenu() {
           className="mt-2 w-[12rem] flex items-center justify-content-center rounded-full bg-green-400 p-2 text-xl  font-medium text-black"
           type="submit"
         >
-          Create Menu
+          Edit
         </button>
       </form>
     </div>
   );
 }
 
-export default AddMenu;
+export default EditModal;

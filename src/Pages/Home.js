@@ -7,35 +7,7 @@ import Main from "../Pages/Main";
 import AddMenu from "./AddMenu";
 
 function Home() {
-  // const [cartItems, setCartItems] = useState([]);
   const { products } = useProduct();
-
-  // const onAdd = (products) => {
-  //   const exist = cartItems.find((x) => x.id === products.id);
-
-  //   if (exist) {
-  //     setCartItems(
-  //       cartItems.map((x) =>
-  //         x.id === products.id ? { ...exist, qty: exist.qty + 1 } : x
-  //       )
-  //     );
-  //   } else {
-  //     setCartItems([...cartItems, { ...products, qty: 1 }]);
-  //   }
-  // };
-
-  // const onRemove = (products) => {
-  //   const exist = cartItems.find((x) => x.id === products.id);
-  //   if (exist.qty === 1) {
-  //     setCartItems(cartItems.filter((x) => x.id !== products.id));
-  //   } else {
-  //     setCartItems(
-  //       cartItems.map((x) =>
-  //         x.id === products.id ? { ...exist, qty: exist.qty - 1 } : x
-  //       )
-  //     );
-  //   }
-  // };
 
   return (
     <div className="bg-[url('/public/images/popular-bg.jpg')] bg-cover bg-center bg-fixed">
@@ -57,3 +29,31 @@ function Home() {
 }
 
 export default Home;
+
+// const [cartItems, setCartItems] = useState([]);
+// const onAdd = (products) => {
+//   const exist = cartItems.find((x) => x.id === products.id);
+
+//   if (exist) {
+//     setCartItems(
+//       cartItems.map((x) =>
+//         x.id === products.id ? { ...exist, qty: exist.qty + 1 } : x
+//       )
+//     );
+//   } else {
+//     setCartItems([...cartItems, { ...products, qty: 1 }]);
+//   }
+// };
+
+// const onRemove = (products) => {
+//   const exist = cartItems.find((x) => x.id === products.id);
+//   if (exist.qty === 1) {
+//     setCartItems(cartItems.filter((x) => x.id !== products.id));
+//   } else {
+//     setCartItems(
+//       cartItems.map((x) =>
+//         x.id === products.id ? { ...exist, qty: exist.qty - 1 } : x
+//       )
+//     );
+//   }
+// };

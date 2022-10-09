@@ -1,8 +1,41 @@
+import { useProduct } from "../context/ProductContext";
+import { useLoading } from "../context/LoadingContext";
+import { useState } from "react";
+import EditModal from "./EditModal";
+
 function Product(props) {
+  const [openEditMenu, setOpenEditMenu] = useState(false);
+
+  const { startLoading, stopLoading } = useLoading();
   const { product } = props;
+  const { deleteProducts } = useProduct();
+
+  const handleClickDelete = async (e) => {
+    e.preventDefault();
+
+    try {
+      startLoading();
+      await deleteProducts(product.id);
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  const openMenu = () => {
+    setOpenEditMenu((prev) => !prev);
+  };
 
   return (
     <div className="overflow-hidden rounded-2xl bg-gray-50">
+      <button
+        class="p-1 pl-2 pr-2 bg-red-500 text-gray-100 text-lg rounded-lg  border-red-300"
+        onClick={handleClickDelete}
+      >
+        Delete Menu
+      </button>
       <div className="flex items-center h-[250px] overflow-hidden">
         <img
           className="small"
@@ -22,12 +55,13 @@ function Product(props) {
             </span>
           </div>
           <button
-            className="mt-2 inline-block rounded-full bg-orange-400 p-3 text-sm font-medium text-white"
-            onClick={() => {}}
+            className="mt-2 inline-block rounded-full bg-orange-400 p-2 text-xl font-medium text-white"
+            onClick={openMenu}
           >
             Edit Menu
           </button>
         </div>
+        {openEditMenu ? <EditModal product={product} /> : ""}
       </div>
     </div>
   );

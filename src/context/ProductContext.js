@@ -18,8 +18,18 @@ function ProductContextProvider({ children }) {
     return await productService.createProducts(input);
   };
 
+  const updateProducts = async (id, input) => {
+    return await productService.updateProducts(id, input);
+  };
+
+  const deleteProducts = async (id) => {
+    return await productService.deleteProducts(id);
+  };
+
   return (
-    <ProductContext.Provider value={{ products, createProducts }}>
+    <ProductContext.Provider
+      value={{ products, createProducts, updateProducts, deleteProducts }}
+    >
       {children}
     </ProductContext.Provider>
   );

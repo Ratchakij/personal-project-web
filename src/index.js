@@ -14,17 +14,17 @@ import ProductContextProvider from "./context/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <LoadingContextProvider>
-        <AuthContextProvider>
-          <ProductContextProvider>
-            <App />
-          </ProductContextProvider>
-        </AuthContextProvider>
-      </LoadingContextProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <LoadingContextProvider>
+      <AuthContextProvider>
+        <ProductContextProvider>
+          <App />
+        </ProductContextProvider>
+      </AuthContextProvider>
+    </LoadingContextProvider>
+  </BrowserRouter>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

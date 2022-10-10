@@ -28,9 +28,7 @@ function Header() {
 
         <CustomLink to="/about">About</CustomLink>
 
-        <CustomLink to="/">
-          <Logout />
-        </CustomLink>
+        <Logout />
       </ul>
     </nav>
   );

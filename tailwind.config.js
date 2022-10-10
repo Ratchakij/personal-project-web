@@ -7,8 +7,6 @@ module.exports = {
   theme: {
     extend: {
       background: "url('/public/images/popular-bg.jpg')",
-      backgroundLogin: "url('/public/images/bg-login.jpg')",
-      backgroundLogin: "url('/public/images/bg-login1.jpg')",
     },
   },
   plugins: [require("flowbite/plugin")],

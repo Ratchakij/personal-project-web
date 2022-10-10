@@ -1,6 +1,7 @@
 import { useProduct } from "../context/ProductContext";
 import { useLoading } from "../context/LoadingContext";
 import { useState } from "react";
+import Modal from "../components/ui/Modal";
 import EditModal from "./EditModal";
 
 function Product(props) {
@@ -24,9 +25,9 @@ function Product(props) {
     }
   };
 
-  const openMenu = () => {
-    setOpenEditMenu((prev) => !prev);
-  };
+  // const openMenu = () => {
+  //   setOpenEditMenu((prev) => !prev);
+  // };
 
   return (
     <div className="overflow-hidden rounded-2xl bg-gray-50">
@@ -56,12 +57,22 @@ function Product(props) {
           </div>
           <button
             className="mt-2 inline-block rounded-full bg-orange-400 p-2 text-xl font-medium text-white"
-            onClick={openMenu}
+            onClick={() => setOpenEditMenu(true)}
           >
             Edit Menu
           </button>
         </div>
-        {openEditMenu ? <EditModal product={product} /> : ""}
+        <Modal
+          title="Update Menu"
+          open={openEditMenu}
+          onClose={() => setOpenEditMenu(false)}
+        >
+          <EditModal
+            onSuccess={() => setOpenEditMenu(false)}
+            product={product}
+          />
+        </Modal>
+        {/* {openEditMenu ? <EditModal product={product} /> : ""} */}
       </div>
     </div>
   );

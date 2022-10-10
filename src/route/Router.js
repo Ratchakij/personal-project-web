@@ -13,17 +13,17 @@ function Router() {
         <Routes>
           <Route path="/" element={<AuthLayout />}>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/product" element={<Product />} /> */}
             <Route path="/about" element={<About />} />
+            {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Route>
         </Routes>
       ) : (
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       )}
     </>
   );
 }
-
 export default Router;

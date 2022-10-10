@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useProduct } from "../context/ProductContext";
 import { useLoading } from "../context/LoadingContext";
+import profileImage from "../asset/images/add-menu.jpg";
 
 function AddMenu() {
   const { createProducts } = useProduct();
@@ -29,6 +30,7 @@ function AddMenu() {
       startLoading();
       await createProducts(formData);
       toast.success("success create");
+      window.location.reload();
     } catch (err) {
       console.log(err);
     } finally {
@@ -45,7 +47,7 @@ function AddMenu() {
       >
         <img
           className="w-[10rem] h-[10rem]"
-          src={file ? URL.createObjectURL(file) : ""}
+          src={file ? URL.createObjectURL(file) : profileImage}
           alt=""
         />
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />

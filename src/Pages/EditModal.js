@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { useProduct } from "../context/ProductContext";
 import { useLoading } from "../context/LoadingContext";
 
-function EditModal({ product }) {
+function EditModal({ onSuccess, product }) {
   const { name, price, quantity, productImage, id } = product;
   const { updateProducts } = useProduct();
   const { startLoading, stopLoading } = useLoading();
@@ -12,7 +12,10 @@ function EditModal({ product }) {
     price: price,
     quantity: quantity,
   });
+
   const [file, setFile] = useState(null);
+
+  const inputEl = useRef();
 
   const formData = new FormData();
   formData.append("productImage", file);
@@ -30,6 +33,8 @@ function EditModal({ product }) {
       startLoading();
       await updateProducts(id, formData);
       toast.success("success update");
+      onSuccess();
+      window.location.reload();
     } catch (err) {
       console.log(err);
     } finally {
@@ -38,19 +43,29 @@ function EditModal({ product }) {
   };
 
   return (
-    <div className="flex flex-col h-[40rem] w-[30rem] gap-4 align-items-center overflow-hidden rounded-2xl bg-gray-50  ">
-      <span className="text-lg font-semibold text-gray-800">Update Menu</span>
+    <div>
+      <input
+        type="file"
+        className="d-none"
+        ref={inputEl}
+        onChange={(e) => {
+          if (e.target.files[0]) {
+            setFile(e.target.files[0]);
+          }
+        }}
+      />
+
       <form
-        className=" row flex justify-center gx-2 gy-3 "
+        className="row d-flex justify-content-center "
         onSubmit={handleSubmitForm}
       >
         <img
-          className="w-[10rem] h-[10rem]"
-          src={productImage}
+          className="h-[20rem] w-[30rem] cursor-pointer"
+          src={file ? URL.createObjectURL(file) : productImage}
           alt=""
-          onSubmit={handleSubmitForm}
+          onClick={() => inputEl.current.click()}
         />
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+
         <div className=" row flex justify-center">
           <label
             htmlFor="product-name"
@@ -95,19 +110,12 @@ function EditModal({ product }) {
             onChange={handleChangeInput}
           />
         </div>
-        {/* <span className="mt-2 text-lg font-semibold text-gray-800">
-          <input
-          type="text"
-          className="form-control rounded-md h-10"
-          placeholder="Password"
-          name="password"
-          />
-        </span> */}
+
         <button
           className="mt-2 w-[12rem] flex items-center justify-content-center rounded-full bg-green-400 p-2 text-xl  font-medium text-black"
           type="submit"
         >
-          Edit
+          UPDATE
         </button>
       </form>
     </div>

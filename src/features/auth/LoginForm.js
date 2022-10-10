@@ -24,7 +24,7 @@ function LoginForm() {
       startLoading();
       await login(input);
       toast.success("success login");
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       toast.error(err.response.data.message);
     } finally {

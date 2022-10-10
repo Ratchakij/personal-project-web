@@ -12,7 +12,7 @@ function Router() {
       {user ? (
         <Routes>
           <Route path="/" element={<AuthLayout />}>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             {/* <Route path="/product" element={<Product />} /> */}
             <Route path="/about" element={<About />} />
           </Route>

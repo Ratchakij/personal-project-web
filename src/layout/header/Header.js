@@ -18,11 +18,11 @@ function CustomLink({ to, children, ...props }) {
 function Header() {
   return (
     <nav className="nav">
-      <Link to="/home" className="logo">
+      <Link to="/" className="logo">
         Site Name
       </Link>
       <ul>
-        <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="/">Home</CustomLink>
 
         {/* <CustomLink to="/product">Product</CustomLink> */}
 

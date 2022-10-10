@@ -43,7 +43,7 @@ function RegisterForm({ onSuccess }) {
     } finally {
       stopLoading();
       setTimeout(() => {
-        navigate("/home");
+        navigate("/");
       }, 1);
     }
   };

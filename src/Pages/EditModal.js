@@ -34,7 +34,6 @@ function EditModal({ onSuccess, product }) {
       await updateProducts(id, formData);
       toast.success("success update");
       onSuccess();
-      window.location.reload();
     } catch (err) {
       console.log(err);
     } finally {

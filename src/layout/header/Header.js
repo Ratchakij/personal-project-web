@@ -27,6 +27,7 @@ function Header() {
         {/* <CustomLink to="/product">Product</CustomLink> */}
 
         <CustomLink to="/about">About</CustomLink>
+        {/* <CustomLink to="/login">Logout</CustomLink> */}
 
         <Logout />
       </ul>

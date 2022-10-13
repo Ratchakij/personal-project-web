@@ -15,20 +15,31 @@ function ProductContextProvider({ children }) {
   }, []);
 
   const createProducts = async (input) => {
-    return await productService.createProducts(input);
+    await productService.createProducts(input);
+    const res = await productService.getAllProducts();
+    setProduct(res.data.product);
   };
 
   const updateProducts = async (id, input) => {
-    return await productService.updateProducts(id, input);
+    await productService.updateProducts(id, input);
+    const res = await productService.getAllProducts();
+    setProduct(res.data.product);
   };
 
   const deleteProducts = async (id) => {
-    return await productService.deleteProducts(id);
+    await productService.deleteProducts(id);
+    const res = await productService.getAllProducts();
+    setProduct(res.data.product);
   };
 
   return (
     <ProductContext.Provider
-      value={{ products, createProducts, updateProducts, deleteProducts }}
+      value={{
+        products,
+        createProducts,
+        updateProducts,
+        deleteProducts,
+      }}
     >
       {children}
     </ProductContext.Provider>

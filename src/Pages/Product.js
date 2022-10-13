@@ -17,7 +17,6 @@ function Product(props) {
     try {
       startLoading();
       await deleteProducts(product.id);
-      window.location.reload();
     } catch (err) {
       console.log(err);
     } finally {

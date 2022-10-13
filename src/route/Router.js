@@ -7,23 +7,31 @@ import About from "../Pages/About";
 
 function Router() {
   const { user } = useAuth();
+
+  console.log(user);
   return (
-    <>
+    <Routes>
       {user ? (
-        <Routes>
+        user.role === "ADMIN" ? (
           <Route path="/" element={<AuthLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Route>
-        </Routes>
+        ) : (
+          <Route path="/" element={<AuthLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          </Route>
+        )
       ) : (
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
+        <>
+          <Route path="/login" element={<LoginPage />} />
           {/* <Route path="*" element={<Navigate to="/" />} /> */}
-        </Routes>
+        </>
       )}
-    </>
+    </Routes>
   );
 }
 export default Router;

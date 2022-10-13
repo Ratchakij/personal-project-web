@@ -4,6 +4,8 @@ import { API_ENDPOINT_URL } from "./env";
 
 axios.defaults.baseURL = API_ENDPOINT_URL;
 
+// axios interceptor จะมาช่วยจัดการเมื่อเราต้องการ call api แล้วมีงานที่ต้องทำทุกๆครั้งๆก่อน call api เช่นการเชค token หรือการแนบ token ไปกับ header ทุกๆ request
+
 axios.interceptors.request.use(
   (config) => {
     const token = getAccessToken();

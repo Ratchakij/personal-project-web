@@ -3,6 +3,7 @@
 import * as authService from "../api/authApi";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   addAccessToken,
@@ -13,6 +14,7 @@ import {
 // createContext ==> เป็นตัวสร้าง Context Object ขึ้นมาเพื่อเก็บข้อมูลที่ต้องการใช้ร่วมกัน, ใช้เป็น Provider, และใช้ Subscribe Context ที่Components ปลายทาง
 const AuthContext = createContext();
 function AuthContextProvider({ children }) {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
 
@@ -49,9 +51,10 @@ function AuthContextProvider({ children }) {
     await getMe();
   };
 
-  const logout = () => {
+  const logout = async () => {
     setUser(null);
     removeAccessToken();
+    setTimeout(() => navigate("/login"), 10);
   };
 
   return (

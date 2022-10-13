@@ -30,7 +30,6 @@ function AddMenu() {
       startLoading();
       await createProducts(formData);
       toast.success("success create");
-      window.location.reload();
     } catch (err) {
       console.log(err);
     } finally {

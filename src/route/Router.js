@@ -8,7 +8,7 @@ import About from "../Pages/About";
 function Router() {
   const { user } = useAuth();
 
-  console.log(user);
+  // console.log(user);
   return (
     <Routes>
       {user ? (

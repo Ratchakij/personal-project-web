@@ -31,7 +31,7 @@ function Product(props) {
   return (
     <div className="overflow-hidden rounded-2xl bg-gray-50">
       <button
-        class="p-1 pl-2 pr-2 bg-red-500 text-gray-100 text-lg rounded-lg  border-red-300"
+        className="p-1 pl-2 pr-2 bg-red-500 text-gray-100 text-lg rounded-lg  border-red-300"
         onClick={handleClickDelete}
       >
         Delete Menu
